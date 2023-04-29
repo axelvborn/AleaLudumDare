@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Alea Ludum Dare</title>
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <h1>Alea Ludum Dare</h1>
+    <fieldset>
+        <legend>Category</legend>
+        <div>
+            <input type="radio" id="catAny" name="category" value="" checked>
+            <label for="catAny">Any</label>
+        </div>
+        <div>
+            <input type="radio" id="catCompo" name="category" value="compo">
+            <label for="catCompo">Compo</label>
+        </div>
+        <div>
+            <input type="radio" id="catJam" name="category" value="jam">
+            <label for="catJam">Jam</label>
+        </div>
+        <div>
+            <input type="radio" id="catExtra" name="category" value="extra">
+            <label for="catExtra">Extra</label>
+        </div>
+    </fieldset>
+    <button id="getButton" onclick="getRandomGame()">Da Ludum Alea</button>
+    <p id="noResultsText" style="display:none">Error : No game to display. A possible cause for this is that Ludum Dare is still running.</p>
+</body>
+
+</html>
