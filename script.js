@@ -1,6 +1,6 @@
 //LD's Links
-const API_LINK = "http://api.ldjam.com";
-const LD_LINK = "http://ldjam.com";
+const API_LINK = "https://api.ldjam.com";
+const LD_LINK = "https://ldjam.com";
 
 //DairyBox (self hosted JammerCore) links
 // const API_LINK = "http://api.ldjam.work";
