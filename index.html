@@ -7,30 +7,39 @@
     <script src="script.js"></script>
 </head>
 
-<body>
-    <h1>Alea Ludum Dare</h1>
-    <p>Get shown a random game from the current Ludum Dare.</p>
-    <fieldset>
-        <legend>Category</legend>
-        <div>
-            <input type="radio" id="catAny" name="category" value="" checked>
-            <label for="catAny">Any</label>
+<body style="background-color: #6f7984;font-family: Roboto,sans-serif;">
+    <main style="background-color: #1f2429;position:aboslute;margin-left:auto;margin-right:auto;margin-top:20px;width:600px;">
+        <header style="color:white;padding:10px 20px 10px 20px;">
+            <h1>Alea Ludum Dare</h1>
+        </header>
+        <div style=" background-color:#eef2f7;padding:10px 40px 20px 40px;">
+            <p>Get shown a random game from the current Ludum Dare.</p>
+            <div style="width:100%;display: flex; align-items: center; justify-content: center; gap: 20px;">
+                <fieldset style=" width:200px;display:inline-block">
+                    <legend>Category</legend>
+                    <div>
+                        <input type="radio" id="catAny" name="category" value="" checked>
+                        <label for="catAny">Any</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="catCompo" name="category" value="compo">
+                        <label for="catCompo">Compo</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="catJam" name="category" value="jam">
+                        <label for="catJam">Jam</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="catExtra" name="category" value="extra">
+                        <label for="catExtra">Extra</label>
+                    </div>
+                </fieldset>
+                <button id="getButton" onclick="getRandomGame()" style="width:150px; height: 60px;display:inline-block;">Da Ludum Alea</button>
+            </div>
+            <p id="noResultsText" style="display:none; color: red">No game to display. Maybe Ludum Dare is still on-going.</p>
         </div>
-        <div>
-            <input type="radio" id="catCompo" name="category" value="compo">
-            <label for="catCompo">Compo</label>
-        </div>
-        <div>
-            <input type="radio" id="catJam" name="category" value="jam">
-            <label for="catJam">Jam</label>
-        </div>
-        <div>
-            <input type="radio" id="catExtra" name="category" value="extra">
-            <label for="catExtra">Extra</label>
-        </div>
-    </fieldset>
-    <button id="getButton" onclick="getRandomGame()">Da Ludum Alea</button>
-    <p id="noResultsText" style="display:none">Error : No game to display. A possible cause for this might be that Ludum Dare is still running.</p>
+        <footer style="color:white;padding:10px 20px 10px 20px;font-size: small;">Ludum Dare 53 Entry</footer>
+    </main>
 </body>
 
 </html>
