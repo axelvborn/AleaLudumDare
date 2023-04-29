@@ -1,12 +1,12 @@
 //LD's Links
-var API_LINK = "https://api.ldjam.com";
-var LD_LINK = "https://ldjam.com";
-var IMG_LINK = "//static.jam.host";
+// var API_LINK = "https://api.ldjam.com";
+// var LD_LINK = "https://ldjam.com";
+// var IMG_LINK = "//static.jam.host";
 
 //DairyBox (self hosted JammerCore) links
-// var API_LINK = "http://api.ldjam.work";
-// var LD_LINK = "http://ldjam.work";
-// var IMG_LINK = "http://static.jammer.work";
+var API_LINK = "http://api.ldjam.work";
+var LD_LINK = "http://ldjam.work";
+var IMG_LINK = "http://static.jammer.work";
 
 var IMG_PARAMS = ".480x384.fit.jpg";
 
@@ -17,7 +17,7 @@ setTimeout(Init, 1000); // Short inevitable delay to make sure page was generate
 
 async function Init() {
     let button = document.createElement("button");
-    button.innerHTML = "Random Mode";
+    button.innerHTML = "Switch to Alea";
     button.style.fontSize = "22px";
     button.style.margin = "5px";
     button.onclick = function () {
@@ -29,9 +29,9 @@ async function Init() {
 }
 
 async function ReplaceGames() {
+    let filters = document.getElementsByClassName("input-dropdown -filter-event")[0].children[0].children[1].children[1].innerHTML.toLowerCase();
     let gamesList = document.getElementsByClassName("button-base button-link content-box");
-
-    const randomResponse = await fetch(API_LINK + API_RANDOM_GET + "?count=" + String(gamesList.length));
+    const randomResponse = await fetch(API_LINK + API_RANDOM_GET + filters + "?count=" + String(gamesList.length));
     const randomJson = await randomResponse.json();
 
     if (!randomJson.listenabled) {
