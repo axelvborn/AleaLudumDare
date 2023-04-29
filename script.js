@@ -18,7 +18,7 @@ function Init() {
 }
 
 async function getRandomGame() {
-    var filter = document.querySelector('input[name="category"]:checked').value;
+    let filter = document.querySelector('input[name="category"]:checked').value;
     const randomResponse = await fetch(API_LINK + API_RANDOM_GET + filter + "?count=1");
     const randomJson = await randomResponse.json();
 
