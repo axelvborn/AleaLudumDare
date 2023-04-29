@@ -1,0 +1,20 @@
+{
+    "manifest_version": 2,
+    "name": "Alea Ludum Dare",
+    "version": "1.0",
+    "description": "Adds Alea (Random) sort to Ludum Dare Website.",
+    "icons": {
+        "48": "icons/border-48.png",
+        "96": "icons/border-96.png"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*.ldjam.com/*"
+            ],
+            "js": [
+                "alea_content.js"
+            ]
+        }
+    ]
+}
