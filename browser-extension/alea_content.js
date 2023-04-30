@@ -35,7 +35,7 @@ async function Init() {
         aleaButton.innerHTML = '<div><svg class="svg-icon icon-ticket"><use xlink:href="#icon-ticket"></use></svg><div>Alea</div></div>';
         aleaButton.onclick = function () {
             wasSetToAlea = true;
-            document.getElementsByClassName("content-common-body")[0].children[0].innerHTML = "<strong>Alea</strong>: This filter shows a random selection of games."
+            document.getElementsByClassName("content-base content-common filter-item filter-game")[0].children[3].children[0].innerHTML = "<strong>Alea</strong>: This filter shows a random selection of games."
             ReplaceMoreButton();
             ReplaceGames();
             sortDropdown.children[1].remove();
