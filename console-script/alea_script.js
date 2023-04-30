@@ -9,25 +9,46 @@ var IMG_LINK = "//static.jam.host";
 // var IMG_LINK = "http://static.jammer.work";
 
 var IMG_PARAMS = ".480x384.fit.jpg";
-
 var API_RANDOM_GET = "/vx/random/game/get/";
 var API_NODE_GET = "/vx/node/get/";
+
+var wasSetToAlea = false;
+var dropdownOpen = false;
 
 Init();
 
 async function Init() {
-    let button = document.createElement("button");
-    button.innerHTML = "Switch to Alea";
-    button.style.fontSize = "22px";
-    button.style.margin = "5px";
-    button.onclick = function () {
-        ReplaceMoreButton();
-        ReplaceGames();
-        document.getElementsByClassName("input-dropdown -filter-event")[1].children[0].children[1].children[1].innerHTML = "Alea";
-        button.remove();
-    }
-    filtersContainer = document.getElementsByClassName("content-base content-common filter-item filter-game")[0];
-    filtersContainer.insertBefore(button, filtersContainer.children[3]);
+    sortDropdown = document.getElementsByClassName("input-dropdown -filter-event")[1];
+    sortDropdown.children[0].onclick = function () {
+        dropdownOpen = !dropdownOpen;
+        if (!dropdownOpen) {
+            if (wasSetToAlea) {
+                setTimeout(UpdateDropdownText, 0, sortDropdown, 1);
+            }
+            return;
+        }
+        if (wasSetToAlea) {
+            setTimeout(UpdateDropdownText, 0, sortDropdown, 0);
+        }
+        let aleaButton = document.createElement("div");
+        aleaButton.className = "-item";
+        aleaButton.innerHTML = '<div><svg class="svg-icon icon-ticket"><use xlink:href="#icon-ticket"></use></svg><div>Alea</div></div>';
+        aleaButton.onclick = function () {
+            wasSetToAlea = true;
+            ReplaceMoreButton();
+            ReplaceGames();
+            sortDropdown.children[1].remove();
+            setTimeout(UpdateDropdownText, 0, sortDropdown, 1);
+            dropdownOpen = false;
+        }
+        sortDropdown.children[1].style.maxHeight = "30em";
+        sortDropdown.children[1].appendChild(aleaButton);
+    };
+    document.body.onclick = function () {
+        if (dropdownOpen) {
+            setTimeout(OnBodyClickDelayed, 1, sortDropdown);
+        }
+    };
 }
 
 async function ReplaceGames() {
@@ -71,4 +92,18 @@ function ReplaceMoreButton() {
     moreButtonContainer.innerHTML = '<div class="button-base -button" tabindex="0">REROLL</div>';
     moreButtonContainer.children[0].onclick = ReplaceGames;
     moreButtonContainer.children[0].onkeydown = ReplaceGames;
+}
+
+function OnBodyClickDelayed(dropdown) {
+    if (dropdown.children.length == 1) {
+        dropdownOpen = false;
+        if (wasSetToAlea) {
+            UpdateDropdownText(dropdown, 1)
+        }
+    }
+}
+
+//1 = Upon Closing, 0 = Upon Opening. Called with a timeout to make sure DOM was already changed.
+function UpdateDropdownText(dropdown, value) {
+    dropdown.children[0].children[value].innerHTML = '<svg class="svg-icon icon-ticket"><use xlink:href="#icon-ticket"></use></svg><div>Alea</div>';
 }
