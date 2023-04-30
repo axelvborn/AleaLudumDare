@@ -1,19 +1,19 @@
 //LD's Links
-// var API_LINK = "https://api.ldjam.com";
-// var LD_LINK = "https://ldjam.com";
-// var IMG_LINK = "//static.jam.host";
+var API_LINK = "https://api.ldjam.com";
+var LD_LINK = "https://ldjam.com";
+var IMG_LINK = "//static.jam.host";
 
 //DairyBox (self hosted JammerCore) links
-var API_LINK = "http://api.ldjam.work";
-var LD_LINK = "http://ldjam.work";
-var IMG_LINK = "http://static.jammer.work";
+// var API_LINK = "http://api.ldjam.work";
+// var LD_LINK = "http://ldjam.work";
+// var IMG_LINK = "http://static.jammer.work";
 
 var IMG_PARAMS = ".480x384.fit.jpg";
 
 var API_RANDOM_GET = "/vx/random/game/get/";
 var API_NODE_GET = "/vx/node/get/";
 
-setTimeout(Init, 1000); // Short inevitable delay to make sure page was generated properly
+setTimeout(Init, 1000); // Short delay to make sure page was generated properly
 
 async function Init() {
     let button = document.createElement("button");
@@ -24,6 +24,7 @@ async function Init() {
         ReplaceMoreButton();
         ReplaceGames();
         document.getElementsByClassName("input-dropdown -filter-event")[1].children[0].children[1].children[1].innerHTML = "Alea";
+        button.remove();
     }
     filtersContainer = document.getElementsByClassName("content-base content-common filter-item filter-game")[0];
     filtersContainer.insertBefore(button, filtersContainer.children[3]);
@@ -67,11 +68,7 @@ async function ReplaceGames() {
 
 function ReplaceMoreButton() {
     let moreButtonContainer = document.getElementsByClassName("content-base content-more")[0];
-    moreButtonContainer.innerHTML = '<div class="button-base -button" tabindex="0">RANDOM</div>';
+    moreButtonContainer.innerHTML = '<div class="button-base -button" tabindex="0">REROLL</div>';
     moreButtonContainer.children[0].onclick = ReplaceGames;
     moreButtonContainer.children[0].onkeydown = ReplaceGames;
 }
-
-chrome.runtime.onMessage.addListener(function (request, sender, sendResponses) {
-    Init();
-});

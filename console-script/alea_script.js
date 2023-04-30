@@ -13,7 +13,7 @@ var IMG_PARAMS = ".480x384.fit.jpg";
 var API_RANDOM_GET = "/vx/random/game/get/";
 var API_NODE_GET = "/vx/node/get/";
 
-setTimeout(Init, 1000); // Short inevitable delay to make sure page was generated properly
+Init();
 
 async function Init() {
     let button = document.createElement("button");
@@ -24,6 +24,7 @@ async function Init() {
         ReplaceMoreButton();
         ReplaceGames();
         document.getElementsByClassName("input-dropdown -filter-event")[1].children[0].children[1].children[1].innerHTML = "Alea";
+        button.remove();
     }
     filtersContainer = document.getElementsByClassName("content-base content-common filter-item filter-game")[0];
     filtersContainer.insertBefore(button, filtersContainer.children[3]);
@@ -67,7 +68,7 @@ async function ReplaceGames() {
 
 function ReplaceMoreButton() {
     let moreButtonContainer = document.getElementsByClassName("content-base content-more")[0];
-    moreButtonContainer.innerHTML = '<div class="button-base -button" tabindex="0">RANDOM</div>';
+    moreButtonContainer.innerHTML = '<div class="button-base -button" tabindex="0">REROLL</div>';
     moreButtonContainer.children[0].onclick = ReplaceGames;
     moreButtonContainer.children[0].onkeydown = ReplaceGames;
 }
