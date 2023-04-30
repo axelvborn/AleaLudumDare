@@ -8,11 +8,7 @@
         "96": "icons/border-96.png"
     },
     "permissions": [
-        "scripting",
-        "webRequest",
-        "webNavigation",
-        "tabs",
-        "activeTab"
+        "scripting"
     ],
     "host_permissions": [
         "http://*/",
