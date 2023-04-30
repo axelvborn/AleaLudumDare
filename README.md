@@ -18,7 +18,7 @@ Once the Alea filter is selected, a random selection of games will be shown. The
 
 The Alea filter can also be used along 'Category' (Compo/Jam/Extra) filters. For that, you'll have to select a Category first and then switch the 'sorting' to Alea.
 
-**Setup (Browser Extension version) :**
+**Setup (Browser Extension version) :**  
 *Browser extension works with Google Chrome or any other browser with a good Manifest V3 compatibility.*
 *It is not compatible with Mozilla Firefox.*
 - Download the browser extension
@@ -27,7 +27,7 @@ The Alea filter can also be used along 'Category' (Compo/Jam/Extra) filters. For
 -- Note : Extensions loaded that way are temporary extensions and will be removed once you close your browser (or if you remove it manually)
 - Open the list of games page on LD's website (https://ldjam.com/games). *If you were already on it prior to loading the extension, you might have to refresh the page.*
 
-**Setup (Script version) :**
+**Setup (Script version) :**  
 *Works with any browser.*
 - Go to the list of games page on LD's website (https://ldjam.com/games)
 - Open your browser's developer tools (usually F12 hotkey)
