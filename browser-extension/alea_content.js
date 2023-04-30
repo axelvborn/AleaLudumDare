@@ -23,6 +23,7 @@ async function Init() {
     button.onclick = function () {
         ReplaceMoreButton();
         ReplaceGames();
+        document.getElementsByClassName("input-dropdown -filter-event")[1].children[0].children[1].children[1].innerHTML = "Alea";
     }
     filtersContainer = document.getElementsByClassName("content-base content-common filter-item filter-game")[0];
     filtersContainer.insertBefore(button, filtersContainer.children[3]);
@@ -70,3 +71,7 @@ function ReplaceMoreButton() {
     moreButtonContainer.children[0].onclick = ReplaceGames;
     moreButtonContainer.children[0].onkeydown = ReplaceGames;
 }
+
+chrome.runtime.onMessage.addListener(function (request, sender, sendResponses) {
+    Init();
+});
