@@ -2,7 +2,7 @@
 
 # DISCLAIMER / WARNING :
 
-**This entry doesn't work until Compo has finished.**
+**This entry doesn't work until Rating has begun.**
 
 **It uses Ludum Dare API Calls that aren't available while Ludum Dare is ongoing. So, if you're trying this prior to the Compo's end it won't do anything.**
 
@@ -19,13 +19,13 @@ Once the Alea filter is selected, a random selection of games will be shown. The
 The Alea filter can also be used along 'Category' (Compo/Jam/Extra) filters. For that, you'll have to select a Category first and then switch the 'sorting' to Alea.
 
 **Setup (Browser Extension version) :**  
-*Browser extension works with Google Chrome or any other browser with a good Manifest V3 compatibility.*
+*Browser extension works with Google Chrome or any other browser with a good Manifest V3 compatibility (ie. Google Chrome).*
 *It is not compatible with Mozilla Firefox.*
 - Download the browser extension
-- Load the Extension in your browser
--- For Chrome : go to "chrome://extensions/" in the url -> enable Developer Mode -> click on Load unpacked -> select the extension's folder
--- Note : Extensions loaded that way are temporary extensions and will be removed once you close your browser (or if you remove it manually)
+- Load the Extension in your browser. Ie. for Chrome : go to "chrome://extensions/" in the url -> enable Developer Mode -> click on Load unpacked -> select the extension's folder
 - Open the list of games page on LD's website (https://ldjam.com/games). *If you were already on it prior to loading the extension, you might have to refresh the page.*
+
+*Note : You will have to remove the extension from your browser manually afterwards (unless your browser as a "temporary" extension loading mode which automatically unloads it upon closing browser).*
 
 **Setup (Script version) :**  
 *Works with any browser.*
@@ -33,7 +33,8 @@ The Alea filter can also be used along 'Category' (Compo/Jam/Extra) filters. For
 - Open your browser's developer tools (usually F12 hotkey)
 - Copy/paste the contents of alea_script.js into the console & Execute it.
 - Click on the Sort Filter dropdown and you'll have the Alea Filter showing up.
-*If you leave the page, you'll have to execute the script again for it to show back.*
+
+*Note : If you leave or refresh the page, you'll have to execute the script again for the filter to show back.*
 
 **How to use :**
 - On the list of games page, click on the Sort Filter dropdown (the one with Smart, Classic, etc... filters)
@@ -49,3 +50,5 @@ It's a very basic web page, with only category selection and a simple button tha
 - Open the Alea Ludum Dare web page (https://axelvborn.github.io/AleaLudumDare/)
 - Choose the category (All, Compo, Jam or Extra) you want to test games from.
 - Click on the Da Ludum Alea button and a new tab will open with your random game.
+
+*Note : You can also download the sources and open index.html to open the web page in local.*
