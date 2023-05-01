@@ -8,7 +8,6 @@ var IMG_LINK = "//static.jam.host";
 // var LD_LINK = "http://ldjam.work";
 // var IMG_LINK = "http://static.jammer.work";
 
-var IMG_TVFAIL = "/content/internal/tvfail.png"
 var IMG_PARAMS = ".480x384.fit.jpg";
 var API_RANDOM_GET = "/vx/random/game/get/";
 var API_NODE_GET = "/vx/node/get/";
@@ -16,7 +15,7 @@ var API_NODE_GET = "/vx/node/get/";
 var wasSetToAlea = false;
 var dropdownOpen = false;
 
-setTimeout(Init, 1000); // Short delay to make sure page was generated properly
+Init();
 
 async function Init() {
     sortDropdown = document.getElementsByClassName("input-dropdown -filter-event")[1];
@@ -68,12 +67,7 @@ async function ReplaceGames() {
         const eventResponse = await fetch(API_LINK + API_NODE_GET + nodeJson.node[0].parent);
         const eventJson = await eventResponse.json();
         gamesList[i].href = nodeJson.node[0].path;
-        //Fix missing cover
-        var coverPath = nodeJson.node[0].meta.cover;
-        if (coverPath == null) {
-            coverPath = IMG_TVFAIL;
-        }
-        gamesList[i].children[0].src = IMG_LINK + coverPath + IMG_PARAMS;
+        gamesList[i].children[0].src = IMG_LINK + nodeJson.node[0].meta.cover + IMG_PARAMS;
         gamesList[i].children[1].innerHTML = "<div>" + eventJson.node[0].name + "</div>"; //Might be empty
         let uppercaseCat = String(nodeJson.node[0].subsubtype).toUpperCase();
         switch (uppercaseCat) {
