@@ -19,11 +19,11 @@ function Init() {
 
 async function getRandomGame() {
     let filter = document.querySelector('input[name="category"]:checked').value;
-    const randomResponse = await fetch(API_LINK + API_RANDOM_GET + filter + "?count=10");
+    const randomResponse = await fetch(API_LINK + API_RANDOM_GET + filter + "?count=1");
     const randomJson = await randomResponse.json();
 
     if (randomJson.listenabled) {
-        const nodeResponse = await fetch(API_LINK + API_NODE_GET + randomJson.games[randomJson.games.length - 1]);
+        const nodeResponse = await fetch(API_LINK + API_NODE_GET + randomJson.games[0]);
         const nodeJson = await nodeResponse.json();
         window.open(LD_LINK + nodeJson.node[0].path, '_blank');
         noResultsText.style.display = "none";
